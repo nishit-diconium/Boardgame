@@ -59,7 +59,7 @@ jobs:
       - name: Kubectl Action
         uses: tale/kubectl-action@v1
         with:
-          base-64-kube-config: ${{ secrets.KUBE_CONFIG }}
+          base-64-kube-config: "base64:${{ secrets.KUBE_CONFIG }}"
       - run: |
           kubectl apply -f deployment-service.yaml -n webapps
           kubectl get svc -n webapps
